@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f7f5"/>
+  <rect x="80" y="80" width="1040" height="470" rx="32" fill="#ffffff" stroke="#1a1c1e" stroke-opacity="0.08" stroke-width="2"/>
+  <rect x="140" y="200" width="64" height="64" rx="16" fill="#2a2f3a"/>
+  <rect x="152" y="212" width="40" height="40" rx="8" fill="#f7f7f5"/>
+  <text x="230" y="245" font-family="Georgia, serif" font-size="48" font-weight="600" fill="#1a1c1e">SMMK</text>
+  <text x="140" y="340" font-family="system-ui, sans-serif" font-size="28" fill="#1a1c1e" fill-opacity="0.55">Astro marketing starter  replace this OG image</text>
+</svg>
