@@ -1,5 +1,6 @@
 ---
 import { site } from '../data/site';
+import { withBase } from '../utils/paths';
 
 // Replace YOUR_FORMSPREE_ID with your Formspree form ID before going live.
 const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
@@ -27,7 +28,7 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
         >
           <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10">
             <img
-              src="/img/svg/icon-email.svg"
+              src={withBase('/img/svg/icon-email.svg')}
               alt=""
               class="w-5 h-5"
               loading="lazy"
@@ -44,7 +45,7 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
         <div class="glass-card accent-glow-subtle flex items-center gap-4 rounded-2xl p-5">
           <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10">
             <img
-              src="/img/svg/icon-location.svg"
+              src={withBase('/img/svg/icon-location.svg')}
               alt=""
               class="w-5 h-5"
               loading="lazy"

@@ -34,7 +34,7 @@ export interface CarePlan {
 export const site = {
   name: 'SMMK',
   legalName: 'SMMK',
-  url: 'https://example.com',
+  url: 'https://dizzlacus.github.io/smmk',
   email: 'hello@example.com',
   description:
     'A clean Astro marketing starter. Replace this copy, tokens, and assets with your brand.',

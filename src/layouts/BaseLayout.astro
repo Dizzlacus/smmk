@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site, services, reviews } from '../data/site';
+import { withBase } from '../utils/paths';
 
 interface Props {
   title?: string;
@@ -28,8 +29,8 @@ const {
 
 const siteURL = Astro.site ?? new URL(site.url);
 const canonicalURL = new URL(Astro.url.pathname, siteURL);
-const imageURL = new URL(image, siteURL);
-const founderImageURL = new URL('/favicon.svg', siteURL);
+const imageURL = new URL(withBase(image), siteURL);
+const founderImageURL = new URL(withBase('/favicon.svg'), siteURL);
 
 const businessId = `${site.url}/#business`;
 const websiteId = `${site.url}/#website`;
@@ -51,7 +52,7 @@ const structuredData = {
       email: site.email,
       description: site.description,
       image: imageURL.href,
-      logo: new URL('/favicon.svg', siteURL).href,
+      logo: founderImageURL.href,
       priceRange: site.priceRange,
       areaServed: site.areaServed,
       address: {
@@ -143,9 +144,9 @@ const enableGa = Boolean(site.gaMeasurementId);
     <meta name="theme-color" content="#f7f7f5" />
     <title>{title}</title>
     <link rel="canonical" href={canonicalURL.href} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
+    <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
 
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content={site.name} />

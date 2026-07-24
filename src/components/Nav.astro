@@ -1,5 +1,6 @@
 ---
 import { site } from '../data/site';
+import { withBase } from '../utils/paths';
 
 interface Props {
   showMobileNav?: boolean;
@@ -16,10 +17,10 @@ const mobileLinkClass =
 
 const links = homeLinks
   ? [
-      { href: '/#services', label: 'Services' },
-      { href: '/#about', label: 'About' },
-      { href: '/#reviews', label: 'Testimonials' },
-      { href: '/#contact', label: 'Contact' },
+      { href: withBase('/#services'), label: 'Services' },
+      { href: withBase('/#about'), label: 'About' },
+      { href: withBase('/#reviews'), label: 'Testimonials' },
+      { href: withBase('/#contact'), label: 'Contact' },
     ]
   : [];
 ---
@@ -39,13 +40,13 @@ const links = homeLinks
       <div class="flex justify-between items-center h-20">
         <a
           id="nav-logo"
-          href="/"
+          href={withBase('/')}
           class="flex items-center shrink-0"
           aria-label={site.name}
         >
           <img
             id="nav-logo-mark"
-            src="/img/logo-ink.svg"
+            src={withBase('/img/logo-ink.svg')}
             alt=""
             width="280"
             height="112"

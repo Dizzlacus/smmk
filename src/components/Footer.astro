@@ -1,5 +1,6 @@
 ---
 import { site } from '../data/site';
+import { withBase } from '../utils/paths';
 
 const year = new Date().getFullYear();
 ---
@@ -11,8 +12,8 @@ const year = new Date().getFullYear();
     >
       <div>&copy; {year} {site.name}</div>
       <div class="flex gap-8">
-        <a href="/privacy" class="hover:text-accent transition-colors">Privacy</a>
-        <a href="/terms" class="hover:text-accent transition-colors">Terms</a>
+        <a href={withBase('/privacy')} class="hover:text-accent transition-colors">Privacy</a>
+        <a href={withBase('/terms')} class="hover:text-accent transition-colors">Terms</a>
       </div>
     </div>
   </div>

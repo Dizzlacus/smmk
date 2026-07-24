@@ -1,5 +1,6 @@
 ---
 import { services } from '../data/site';
+import { withBase } from '../utils/paths';
 ---
 
 <section id="services" class="bg-page reveal">
@@ -25,7 +26,7 @@ import { services } from '../data/site';
               <div class="mb-7 flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
                 {service.icon ? (
                   <img
-                    src={service.icon}
+                    src={withBase(service.icon)}
                     alt=""
                     class="w-6 h-6"
                     loading="lazy"
