@@ -17,7 +17,6 @@ const mobileLinkClass =
 const links = homeLinks
   ? [
       { href: '/#services', label: 'Services' },
-      { href: '/#portfolio', label: 'Portfolio' },
       { href: '/#about', label: 'About' },
       { href: '/#reviews', label: 'Testimonials' },
       { href: '/#contact', label: 'Contact' },
@@ -41,20 +40,18 @@ const links = homeLinks
         <a
           id="nav-logo"
           href="/"
-          class="flex items-center gap-2 text-ink hover:text-ink/80 transition-colors shrink-0"
+          class="flex items-center shrink-0"
+          aria-label={site.name}
         >
-          <svg
+          <img
             id="nav-logo-mark"
-            class="w-6 h-6 shrink-0"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <rect x="4" y="4" width="24" height="24" rx="6" fill="#2a2f3a"></rect>
-            <rect x="10" y="10" width="12" height="12" rx="2" fill="#f7f7f5"></rect>
-          </svg>
-          <span class="font-display font-semibold tracking-tight">{site.name}</span>
+            src="/img/logo-ink.svg"
+            alt=""
+            width="280"
+            height="112"
+            class="h-12 md:h-14 w-auto"
+            decoding="async"
+          />
         </a>
 
         {

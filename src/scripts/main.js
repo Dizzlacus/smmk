@@ -86,6 +86,42 @@
   reduceMotion.addEventListener('change', update);
 })();
 
+/** Parallax test banner (no-op when #parallax-test-bg is absent) */
+(function () {
+  const section = document.getElementById('parallax-test');
+  const layer = document.getElementById('parallax-test-bg');
+  if (!section || !layer) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    if (reduceMotion.matches) {
+      layer.style.transform = '';
+      return;
+    }
+    const h = section.offsetHeight || 1;
+    const rect = section.getBoundingClientRect();
+    const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / (window.innerHeight + h)));
+    const yPercent = progress * 12;
+    layer.style.transform = 'translate3d(0, ' + yPercent + '%, 0)';
+  }
+
+  function onScrollOrResize() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  update();
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize, { passive: true });
+  reduceMotion.addEventListener('change', update);
+})();
+
 (function () {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -180,13 +216,6 @@
     updateDots();
   }
 
-  setupCarousel(
-    'portfolio-track',
-    'portfolio-prev',
-    'portfolio-next',
-    '#portfolio-dots [data-portfolio-index]',
-    'data-portfolio-index'
-  );
   setupCarousel(
     'reviews-track',
     'reviews-prev',
