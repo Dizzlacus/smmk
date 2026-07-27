@@ -133,6 +133,18 @@
   display: none;
 }
 
+.expand-desc {
+  overflow: hidden;
+  max-height: calc(3 * 1lh);
+  transition: max-height 0.45s ease;
+}
+
+.expand-desc.is-clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
 #contact-form input:-webkit-autofill,
 #contact-form input:-webkit-autofill:hover,
 #contact-form input:-webkit-autofill:focus,

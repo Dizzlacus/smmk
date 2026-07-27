@@ -15,9 +15,8 @@ import { reviews } from '../data/site';
             <span class="text-accent md:block">Our Clients</span>
           </h2>
           <p class="mx-auto mt-5 max-w-3xl text-lg leading-8 text-ink/55">
-            Placeholder testimonials — swap them for real quotes in <code class="text-sm"
-              >src/data/site.ts</code
-            >.
+            Real feedback from businesses and creatives who trust Kate with their
+            online presence.
           </p>
         </div>
 
@@ -61,27 +60,49 @@ import { reviews } from '../data/site';
 
       <div
         id="reviews-track"
-        class="no-scrollbar mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth"
+        class="no-scrollbar mt-12 flex snap-x snap-mandatory items-start gap-5 overflow-x-auto scroll-smooth"
         aria-label="Client reviews carousel"
       >
         {
-          reviews.map((review) => (
-            <article class="glass-card hover-glow flex min-w-full snap-start flex-col justify-between rounded-[1.5rem] p-7 md:min-w-[calc(50%-0.625rem)] lg:min-w-[calc(33.333%-0.875rem)]">
-              <div>
-                <div
-                  class="text-sm font-bold uppercase tracking-[0.18em] text-accent"
-                  aria-label={`${review.rating} out of 5 rating`}
-                >
-                  {review.rating.toFixed(1)} rating
+          reviews.map((review, index) => {
+            const quoteId = `review-quote-${index}`;
+            return (
+              <article
+                class="glass-card hover-glow flex min-w-full cursor-pointer snap-start flex-col justify-between rounded-[1.5rem] p-7 md:min-w-[calc(50%-0.625rem)] lg:min-w-[calc(33.333%-0.875rem)]"
+                data-expand-card
+                role="button"
+                tabindex="0"
+                aria-expanded="false"
+                aria-controls={quoteId}
+              >
+                <div>
+                  <div
+                    class="text-sm font-bold uppercase tracking-[0.18em] text-accent"
+                    aria-label={`${review.rating} out of 5 rating`}
+                  >
+                    {review.rating.toFixed(1)} rating
+                  </div>
+                  <p
+                    id={quoteId}
+                    class="expand-desc is-clamped mt-6 text-lg leading-8 text-ink/70"
+                  >
+                    {review.quote}
+                  </p>
+                  <span
+                    class="mt-3 inline-block text-sm font-bold text-accent"
+                    data-expand-hint
+                    aria-hidden="true"
+                  >
+                    Read more
+                  </span>
                 </div>
-                <p class="mt-6 text-lg leading-8 text-ink/70">{review.quote}</p>
-              </div>
-              <div class="mt-8">
-                <h3 class="font-display text-xl font-semibold text-ink">{review.name}</h3>
-                <p class="mt-1 text-sm text-ink/45">{review.role}</p>
-              </div>
-            </article>
-          ))
+                <div class="mt-8">
+                  <h3 class="font-display text-xl font-semibold text-ink">{review.name}</h3>
+                  <p class="mt-1 text-sm text-ink/45">{review.role}</p>
+                </div>
+              </article>
+            );
+          })
         }
       </div>
 

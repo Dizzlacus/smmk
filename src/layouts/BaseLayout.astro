@@ -64,14 +64,14 @@ const structuredData = {
       founder: { '@id': founderId },
       ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),
       knowsAbout: [
-        'Platform management',
-        'Social media strategy',
-        'Content creation',
-        'Social media audit',
-        'Creative asset design',
-        'Paid ads',
+        'Platform Management',
+        'Social Media Strategy',
+        'Content Creation',
+        'Social Media Audit',
+        'Creative Asset Design',
+        'Paid Ads',
         'Engagement',
-        'Scheduling and content planning',
+        'Scheduling & Content Planning',
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
@@ -129,7 +129,7 @@ const structuredData = {
   ],
 };
 
-const enableGa = Boolean(site.gaMeasurementId);
+const enableGtm = Boolean(site.gtmId);
 ---
 
 <!doctype html>
@@ -137,6 +137,22 @@ const enableGa = Boolean(site.gaMeasurementId);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {
+      enableGtm && (
+        <script define:vars={{ gtmId: site.gtmId }} is:inline>
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', gtmId);
+        </script>
+      )
+    }
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content={robots} />
@@ -170,30 +186,23 @@ const enableGa = Boolean(site.gaMeasurementId);
       rel="stylesheet"
     />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} is:inline />
-
-    {
-      enableGa && (
-        <>
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${site.gaMeasurementId}`}
-            is:inline
-          />
-          <script define:vars={{ gaMeasurementId: site.gaMeasurementId }}>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-              dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', gaMeasurementId);
-          </script>
-        </>
-      )
-    }
   </head>
   <body
     class="min-h-screen bg-page text-ink antialiased selection:bg-accent/15 selection:text-ink"
   >
+    {
+      enableGtm && (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${site.gtmId}`}
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+            title="Google Tag Manager"
+          />
+        </noscript>
+      )
+    }
     <Nav showMobileNav={showMobileNav} sticky={stickyNav} homeLinks={homeLinks} />
     <slot />
     <Footer />

@@ -1,0 +1,31 @@
+---
+import { certifications, site } from '../data/site';
+---
+
+<section id="certifications" class="bg-page reveal">
+  <div class="px-5 py-10 md:px-10 md:py-12 lg:px-16 lg:py-16">
+    <div class="mx-auto max-w-7xl text-center">
+      <p class="section-kicker">{site.certificationsKicker}</p>
+      <h2
+        class="mt-5 font-display text-3xl font-bold tracking-[-0.04em] text-ink md:text-5xl"
+      >
+        {site.certificationsHeadline}{' '}
+        <span class="text-accent">{site.certificationsHeadlineAccent}</span>
+      </h2>
+
+      <ul class="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-5">
+        {
+          certifications.map((cert) => (
+            <li class="flex items-start justify-center gap-3 text-base leading-7 text-ink/70 md:text-lg">
+              <span
+                class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                aria-hidden="true"
+              ></span>
+              <span class="text-left">{cert.name}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

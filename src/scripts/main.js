@@ -225,6 +225,73 @@
   );
 })();
 
+/** Expandable cards: truncate to 3 lines, expand/collapse with smooth height */
+(function () {
+  function collapsedHeight(desc) {
+    const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
+    return (Number.isFinite(lineHeight) ? lineHeight : 28) * 3;
+  }
+
+  function onHeightEnd(desc, callback) {
+    const handler = (event) => {
+      if (event.propertyName !== 'max-height') return;
+      desc.removeEventListener('transitionend', handler);
+      callback();
+    };
+    desc.addEventListener('transitionend', handler);
+  }
+
+  function toggleCard(card) {
+    const desc = card.querySelector('.expand-desc');
+    const hint = card.querySelector('[data-expand-hint]');
+    if (!desc) return;
+
+    const open = card.hasAttribute('data-open');
+
+    if (open) {
+      const fullHeight = desc.scrollHeight;
+      desc.style.maxHeight = fullHeight + 'px';
+      void desc.offsetHeight;
+
+      card.removeAttribute('data-open');
+      card.setAttribute('aria-expanded', 'false');
+      if (hint) hint.textContent = 'Read more';
+
+      desc.style.maxHeight = collapsedHeight(desc) + 'px';
+      onHeightEnd(desc, () => {
+        if (card.hasAttribute('data-open')) return;
+        desc.classList.add('is-clamped');
+        desc.style.maxHeight = '';
+      });
+      return;
+    }
+
+    desc.classList.remove('is-clamped');
+    desc.style.maxHeight = collapsedHeight(desc) + 'px';
+    void desc.offsetHeight;
+
+    card.setAttribute('data-open', '');
+    card.setAttribute('aria-expanded', 'true');
+    if (hint) hint.textContent = 'Show less';
+
+    desc.style.maxHeight = desc.scrollHeight + 'px';
+    onHeightEnd(desc, () => {
+      if (!card.hasAttribute('data-open')) return;
+      desc.style.maxHeight = 'none';
+    });
+  }
+
+  document.querySelectorAll('[data-expand-card]').forEach((card) => {
+    card.addEventListener('click', () => toggleCard(card));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleCard(card);
+      }
+    });
+  });
+})();
+
 /** Contact form: Formspree redirect back to site + success message */
 (function () {
   const form = document.getElementById('contact-form');
