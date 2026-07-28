@@ -16,7 +16,7 @@ pnpm dev
 3. Replace favicon / OG image under `public/`
 4. Set your Formspree endpoint in `src/components/Contact.astro`
 5. Optionally set `gtmId` in `site.ts` to enable Google Tag Manager
-6. Update `site` in `astro.config.mjs` to your production URL
+6. Production URLs: Workers uses `site` in `astro.config.mjs` / `site.url` in `site.ts`; GitHub Pages overrides `site` + `base` automatically in CI
 
 ## Deploy (Cloudflare Workers)
 
@@ -26,6 +26,10 @@ pnpm deploy
 
 Or `pnpm build` then `npx wrangler deploy`. Set secrets/bindings in the Cloudflare dashboard as needed.
 
+Local and Workers builds use `base: '/'` (site root).
+
 ## Deploy (GitHub Pages)
 
-A workflow is included under `.github/workflows/deploy.yml` if you prefer Pages instead. For a project site (`username.github.io/smmk/`), set `base: '/smmk'` and `site: 'https://username.github.io'` in `astro.config.mjs` before building.
+A workflow under `.github/workflows/deploy.yml` deploys on push to `main`. In CI (`GITHUB_ACTIONS=true`), `astro.config.mjs` automatically sets `base: '/smmk'` and `site: 'https://dizzlacus.github.io'` so assets resolve under `username.github.io/smmk/`.
+
+After changing `base` in config, restart `pnpm dev` — a stale server can keep the old base and break images.

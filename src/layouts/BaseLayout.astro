@@ -28,13 +28,14 @@ const {
 } = Astro.props;
 
 const siteURL = Astro.site ?? new URL(site.url);
+const siteOrigin = new URL(withBase('/'), siteURL).href.replace(/\/$/, '');
 const canonicalURL = new URL(Astro.url.pathname, siteURL);
 const imageURL = new URL(withBase(image), siteURL);
 const founderImageURL = new URL(withBase('/favicon.svg'), siteURL);
 
-const businessId = `${site.url}/#business`;
-const websiteId = `${site.url}/#website`;
-const founderId = `${site.url}/#founder`;
+const businessId = `${siteOrigin}/#business`;
+const websiteId = `${siteOrigin}/#website`;
+const founderId = `${siteOrigin}/#founder`;
 
 const ratings = reviews.map((review) => review.rating);
 const ratingValue =
@@ -48,7 +49,7 @@ const structuredData = {
       '@id': businessId,
       name: site.name,
       legalName: site.legalName,
-      url: site.url,
+      url: siteOrigin,
       email: site.email,
       description: site.description,
       image: imageURL.href,
@@ -112,7 +113,7 @@ const structuredData = {
       '@type': 'WebSite',
       '@id': websiteId,
       name: site.name,
-      url: site.url,
+      url: siteOrigin,
       description: site.description,
       inLanguage: 'en-GB',
       publisher: { '@id': businessId },
@@ -124,7 +125,7 @@ const structuredData = {
       jobTitle: 'Founder',
       image: founderImageURL.href,
       worksFor: { '@id': businessId },
-      url: site.url,
+      url: siteOrigin,
     },
   ],
 };

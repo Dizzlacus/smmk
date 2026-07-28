@@ -39,11 +39,11 @@ export const site = {
   name: 'SMMK',
   legalName: 'SMMK',
   url: 'https://smmk.mikeydiamond.workers.dev',
-  email: 'hello@example.com',
+  email: 'katteferguson@outlook.com',
   description:
     'A clean Astro marketing starter. Replace this copy, tokens, and assets with your brand.',
   founderName: 'Kate',
-  addressLocality: 'City',
+  addressLocality: 'sunny paradise',
   addressRegion: 'Region',
   addressCountry: 'GB',
   areaServed: 'United Kingdom',
@@ -60,8 +60,8 @@ export const site = {
     'More bookings, less workload. Social strategies that turn followers into guests—so you can get back to running the business.',
   heroCta: 'Explore services',
   heroCtaSecondary: 'Get in touch',
-  aboutHeadline: "Hi, I'm",
-  aboutHeadlineAccent: 'Kate',
+  aboutHeadline: 'Hi,',
+  aboutHeadlineAccent: "I'm Kate",
   aboutParagraphs: [
     'Social Media Manager with a strong background in business and marketing. Seven years of education in business management, including a specialised focus on marketing, and a clear understanding of what it takes to manage business accounts.',
     'Passion for social media began over 10 years ago on a personal level, then moved into a professional role — over a year managing social accounts for businesses, growing online presence and engaging audiences.',
@@ -77,7 +77,7 @@ export const site = {
   contactHeadline: 'Ready to',
   contactHeadlineAccent: 'start a project?',
   contactSubhead:
-    'Tell us a little about what you need and we will reply soon. Kate won\'t reply. She doesn\'t to her friend Mikey anyway.',
+    'Tell us a little about what you need and we will reply soon.',
 } as const;
 
 export const services: Service[] = [
