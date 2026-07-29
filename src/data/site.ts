@@ -65,9 +65,9 @@ export const site = {
   aboutHeadline: 'Hi,',
   aboutHeadlineAccent: "I'm Kate",
   aboutParagraphs: [
-    'Social Media Manager with a strong background in business and marketing. Seven years of education in business management, including a specialised focus on marketing, and a clear understanding of what it takes to manage business accounts.',
-    'Passion for social media began over 10 years ago on a personal level, then moved into a professional role — over a year managing social accounts for businesses, growing online presence and engaging audiences.',
-    'Outside of work: travel enthusiast with a love for all things food — exploring new places or trying new food when not working.',
+    'A Social Media Manager with a strong background in business and marketing. With 7 years of education in business management, including a specialised focus on marketing, I bring a comprehensive understanding of what it takes to manage your businesses accounts.',
+    'My passion for social media began over 10 years ago, using various platforms religiously on a personal level. This experience naturally transitioned into a professional role, where I now help businesses grow their online presence, engage their audiences, and drive sales through strategic social media management.',
+    "Outside of work, I'm a travel enthusiast with a love for all things food related — when I'm not working I'm either exploring new places or trying out new food!",
   ],
   aboutCta: 'Get in touch',
   certificationsKicker: 'Credentials',
