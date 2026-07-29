@@ -51,7 +51,7 @@ export const site = {
   sameAs: [] as string[],
   ogImage: '/img/og-image.svg',
   locale: 'en_GB',
-  gtmId: 'GTM-MZTSHHD6',
+  gaMeasurementId: 'G-2ZQKCB9E0F',
   formspreeEndpoint: 'https://formspree.io/f/xpqvbqqw',
   heroEyebrow: 'Digital experiences that inspire',
   heroDisplayTitle: 'Social Media Marketing Services',

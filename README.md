@@ -15,7 +15,7 @@ pnpm dev
 2. Swap design tokens and fonts in `src/styles/global.css` (and the Google Fonts link in `src/layouts/BaseLayout.astro`)
 3. Replace favicon / OG image under `public/`
 4. Set your Formspree endpoint in `src/data/site.ts` (`formspreeEndpoint`)
-5. Optionally set `gtmId` in `site.ts` to enable Google Tag Manager
+5. Optionally set `gaMeasurementId` in `site.ts` to enable Google Analytics
 6. Production URLs: Workers uses `site` in `astro.config.mjs` / `site.url` in `site.ts`; GitHub Pages sets `DEPLOY_TARGET=pages` in CI so `base` and `site` resolve under `username.github.io/smmk/`
 
 ## Deploy (Cloudflare Workers)
