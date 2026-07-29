@@ -39,7 +39,7 @@ export const site = {
   name: 'SMMK',
   legalName: 'SMMK',
   url: 'https://smmk.mikeydiamond.workers.dev',
-  email: 'katteferguson@outlook.com',
+  email: 'katefergusonbusiness@gmail.com',
   description:
     'Social media marketing for UK businesses — strategy, content, and management that turn followers into customers so you can get back to running the business.',
   founderName: 'Kate',
@@ -193,14 +193,14 @@ export const reviews: Review[] = [
     quote:
       '"Kate has been a game-changer for our business since we rebranded. She took over our online presence and not only gave us a fresh look but brought in regular leads and attention to the business. The online presence she put together has been a key tool for our salesman, helping to convert leads into customers. Beyond being our social media manager, Kate has been like a right hand to me, especially when it comes to everything online - she\'s been a lifesaver. She\'s professional, reliable, and always helpful"',
     name: 'Andrew',
-    role: 'AR Resin',
+    role: 'Home Improvement Services',
     rating: 5,
   },
   {
     quote:
-      '"I had the pleasure of connecting with Kate and was impressed by her professionalism and expertise. She has a great understanding both social media and administrative tasks, making her a versatile asset. Kate\'s communication is clear and timely, and she brings a lot of value to the table. Highly recommend her for anyone looking to enhance their business operations"',
+      '"I had the pleasure of connecting with Kate and was impressed by her professionalism and expertise. She has a great understanding of both social media and administrative tasks, making her a versatile asset. Kate\'s communication is clear and timely, and she brings a lot of value to the table. Highly recommend her for anyone looking to enhance their business operations"',
     name: 'Simon',
-    role: 'MJ Training Solutions',
+    role: 'Training Solutions',
     rating: 5,
   },
   {
@@ -212,9 +212,9 @@ export const reviews: Review[] = [
   },
   {
     quote:
-      '"I am a South African brand and international artist and I use Kate from Digital stylist for my social media campaigns in the UK. She is absolutely brilliant at what she does and my sales have been growing month on month. I now have one less thing to worry about. She really puts me at ease and knows her markets."',
+      '"I am a South African brand and international artist and I use Kate for my social media campaigns in the UK. She is absolutely brilliant at what she does and my sales have been growing month on month. I now have one less thing to worry about. She really puts me at ease and knows her markets."',
     name: 'Natasha',
-    role: 'Abstract Artist',
+    role: 'Artist',
     rating: 5,
   },
 ];
