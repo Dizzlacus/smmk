@@ -20,6 +20,8 @@ jobs:
         uses: withastro/action@v6
         with:
           node-version: 22
+        env:
+          DEPLOY_TARGET: pages
 
   deploy:
     needs: build

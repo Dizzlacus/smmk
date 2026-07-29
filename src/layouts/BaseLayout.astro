@@ -58,9 +58,9 @@ const structuredData = {
       areaServed: site.areaServed,
       address: {
         '@type': 'PostalAddress',
-        addressLocality: site.addressLocality,
-        addressRegion: site.addressRegion,
         addressCountry: site.addressCountry,
+        ...(site.addressLocality ? { addressLocality: site.addressLocality } : {}),
+        ...(site.addressRegion ? { addressRegion: site.addressRegion } : {}),
       },
       founder: { '@id': founderId },
       ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),

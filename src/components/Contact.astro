@@ -1,8 +1,6 @@
 ---
 import { site } from '../data/site';
 import { withBase } from '../utils/paths';
-
-const formspreeEndpoint = 'https://formspree.io/f/xpqvbqqw';
 ---
 
 <section id="contact" class="bg-page reveal">
@@ -55,7 +53,9 @@ const formspreeEndpoint = 'https://formspree.io/f/xpqvbqqw';
           </div>
           <div>
             <h3 class="font-display font-semibold text-ink">Location</h3>
-            <p class="mt-1 text-sm text-ink/50">{site.addressLocality}</p>
+            <p class="mt-1 text-sm text-ink/50"
+              >{site.addressLocality || site.areaServed}</p
+            >
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ const formspreeEndpoint = 'https://formspree.io/f/xpqvbqqw';
 
         <form
           id="contact-form"
-          action={formspreeEndpoint}
+          action={site.formspreeEndpoint}
           method="POST"
           class="space-y-5"
         >

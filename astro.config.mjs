@@ -4,8 +4,9 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
-// GitHub Pages serves under /smmk; local + Cloudflare Workers use site root.
-const githubPages = process.env.GITHUB_ACTIONS === 'true';
+// GitHub Pages: set DEPLOY_TARGET=pages (see .github/workflows/deploy.yml).
+// Local + Cloudflare Workers default to site root.
+const githubPages = process.env.DEPLOY_TARGET === 'pages';
 
 // https://astro.build/config
 export default defineConfig({

@@ -41,18 +41,18 @@ export const site = {
   url: 'https://smmk.mikeydiamond.workers.dev',
   email: 'katteferguson@outlook.com',
   description:
-    'A clean Astro marketing starter. Replace this copy, tokens, and assets with your brand.',
+    'Social media marketing for UK businesses — strategy, content, and management that turn followers into customers so you can get back to running the business.',
   founderName: 'Kate',
-  addressLocality: 'sunny paradise',
-  addressRegion: 'Region',
+  addressLocality: '',
+  addressRegion: '',
   addressCountry: 'GB',
   areaServed: 'United Kingdom',
   priceRange: '££',
   sameAs: [] as string[],
   ogImage: '/img/og-image.svg',
   locale: 'en_GB',
-  // Set your GTM container ID to enable analytics in BaseLayout.
   gtmId: 'GTM-MZTSHHD6',
+  formspreeEndpoint: 'https://formspree.io/f/xpqvbqqw',
   heroEyebrow: 'Digital experiences that inspire',
   heroDisplayTitle: 'Social Media Marketing Services',
   heroHeadline: 'Social media marketing services',
@@ -60,6 +60,8 @@ export const site = {
     'More bookings, less workload. Social strategies that turn followers into guests—so you can get back to running the business.',
   heroCta: 'Explore services',
   heroCtaSecondary: 'Get in touch',
+  impactHeadline:
+    'Grow your business with social media that actually delivers results.',
   aboutHeadline: 'Hi,',
   aboutHeadlineAccent: "I'm Kate",
   aboutParagraphs: [

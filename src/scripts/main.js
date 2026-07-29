@@ -86,10 +86,10 @@
   reduceMotion.addEventListener('change', update);
 })();
 
-/** Parallax test banner (no-op when #parallax-test-bg is absent) */
+/** Impact banner parallax (no-op when #impact-bg is absent) */
 (function () {
-  const section = document.getElementById('parallax-test');
-  const layer = document.getElementById('parallax-test-bg');
+  const section = document.getElementById('impact');
+  const layer = document.getElementById('impact-bg');
   if (!section || !layer) return;
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');

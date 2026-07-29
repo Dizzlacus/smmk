@@ -1,0 +1,36 @@
+---
+import { Picture } from 'astro:assets';
+import { site } from '../data/site';
+import aboutImage from '../assets/images/about.jpg';
+
+interface Props {
+  loading?: 'eager' | 'lazy';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  widths?: number[];
+  sizes?: string;
+  class?: string;
+}
+
+const {
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  widths = [480, 720, 1024],
+  sizes = '(min-width: 1024px) 40vw, 90vw',
+  class: className = 'absolute inset-0 h-full w-full object-cover object-center',
+} = Astro.props;
+---
+
+<Picture
+  src={aboutImage}
+  formats={['avif', 'webp']}
+  alt={`${site.name} founder`}
+  width={1024}
+  height={1024}
+  layout="constrained"
+  loading={loading}
+  fetchpriority={fetchpriority}
+  decoding="async"
+  widths={widths}
+  sizes={sizes}
+  class={className}
+/>
